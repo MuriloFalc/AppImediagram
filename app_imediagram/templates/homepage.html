@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>
+
+        {% block titulo %}
+        Homepage
+        {% endblock %}
+
+    </title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+<body>
+    <header class="header container">
+        <nav class="header-menu">
+            <a href="/feed" class="logo">Imediagram</a>
+        </nav>
+    </header>
+
+    {% block body %}
+
+    <div class="container form-login">
+        {% block formulario %}
+
+        <form method="POST">
+            <h2>Bem vindo ao Imediagram</h2>
+
+            {{form.csrf_token}}
+
+            {{ form.email.label() }}
+            {{ form.email() }}
+
+            {{form.senha.label()}}
+            {{form.senha()}}
+
+            {{form.botao_confirmacao()}}
+
+        </form>
+
+        <a href="{{ url_for('criar_conta') }}">Criar Conta</a>
+        {% endblock %}
+    </div>
+
+    {% endblock body %}
+
+</body>
+
+</html>

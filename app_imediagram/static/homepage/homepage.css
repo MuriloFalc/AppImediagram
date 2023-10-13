@@ -1,0 +1,20 @@
+.form-login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.form-login form {
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form-login form input {
+  padding: 0.5rem;
+}

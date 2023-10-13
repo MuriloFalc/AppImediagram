@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Feed</title>
+    <link rel="stylesheet" href="../static/styles.css">
+</head>
+
+<body>
+    <header class="header container">
+        <nav class="header-menu">
+            <a href="/feed" class="logo">Imediagram</a>
+            <div style="display: flex; gap: 1rem;">
+                <a href="{{ url_for('perfil', id_usuario=usuario.id) }}">Perfil</a>
+                <a href="/logout">Sair</a>
+            </div>
+        </nav>
+    </header>
+    <div class="feed container">
+        {% for foto in fotos %}
+        <div class="foto">
+            <img src="{{ url_for('static', filename='fotos_posts/' ~ foto.imagem) }}" alt="Foto">
+            <p>Data de Criação: {{ foto.data_criacao }}</p>
+            <p>Visualizações: {{ foto.visualizacoes }}</p>
+        </div>
+        {% endfor %}
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+{% extends 'homepage.html' %}
+
+{% block titulo %}
+Criar conta
+{% endblock %}
+
+{% block head %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
+{% endblock %}
+
+{% block body %}
+
+
+
+{% block formulario %}
+<div class="container form-login">
+    <form method="POST">
+        <h2>Criar conta</h2>
+
+        {{ form.csrf_token }}
+
+        {{ form.username.label() }}
+        {{ form.username() }}
+
+        {{ form.email.label() }}
+        {{ form.email() }}
+
+        {{ form.senha.label() }}
+        {{ form.senha() }}
+
+        {{ form.confirmacao_senha.label() }}
+
+        {{ form.confirmacao_senha() }}
+
+        {{ form.botao_confirmacao() }}
+    </form>
+    <a href=" {{ url_for('homepage') }}">Já possui uma conta? Faça login</a>
+</div>
+
+
+
+
+{% endblock %}
+
+{% endblock %}

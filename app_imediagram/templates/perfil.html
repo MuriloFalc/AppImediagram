@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{usuario.username}}</title>
+  <link rel="stylesheet" href="../static/styles.css">
+</head>
+
+<body>
+  <header class="header container">
+    <nav class="header-menu">
+      <a href="/feed" class="logo">Imediagram</a>
+      <a href="/logout">Sair</a>
+    </nav>
+  </header>
+
+  <form method="POST" enctype="multipart/form-data" class="form-login container">
+
+    <h2>{{usuario.username}} - Enviar Foto</h2>
+    {{form.csrf_token}}
+
+    {{ form.foto() }}
+
+    {{form.botao_confirmacao()}}
+
+  </form>
+
+  <div class="feed container">
+    {% for foto in usuario.fotos %}
+    <div class="foto">
+      <img src="{{ url_for('static', filename='fotos_posts/' ~ foto.imagem) }}" alt="Foto">
+      <p>Data de Criação: {{ foto.data_criacao }}</p>
+      <p>Visualizações: {{ foto.visualizacoes }}</p>
+    </div>
+    {% endfor %}
+  </div>
+</body>
+
+</html>
